@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сырок GDPS</title>
+    <style>
+        body { margin: 0; padding: 0; background: linear-gradient(135deg, #0a0f1a, #1e3a5f); color: white; font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: 100vh; overflow: auto; text-align: center; padding-top: 50px; }
+        .container { opacity: 0; transform: translateY(20px); animation: fadeInUp 1s forwards; max-width: 1200px; width: 100%; margin: 0 auto; padding-bottom: 30px; }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+        .btn, .panel-btn { margin: 10px; padding: 12px 24px; background: #2196F3; color: white; text-decoration: none; border-radius: 8px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .btn:hover, .panel-btn:hover { transform: translateY(-5px); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); }
+        .btn:active, .panel-btn:active { background: #1565C0; transform: translateY(0); }
+        img { width: 80%; max-width: 600px; border-radius: 10px; margin-top: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); transition: opacity 0.5s ease, transform 0.5s ease; }
+        .screenshots { margin-top: 30px; display: flex; gap: 10px; flex-wrap: wrap; }
+        .screenshots img { width: 200px; height: 120px; object-fit: cover; border-radius: 8px; cursor: pointer; transition: transform 0.3s ease; }
+        .screenshots img:hover { transform: scale(1.05); }
+        .download-options { margin-top: 30px; display: flex; flex-direction: column; align-items: center; transition: all 0.5s ease; }
+        .download-options a { padding: 12px 24px; background: #4CAF50; color: white; text-decoration: none; border-radius: 8px; transition: transform 0.3s ease, box-shadow 0.3s ease; margin: 10px; }
+        .download-options a:hover { transform: translateY(-5px); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); }
+        .download-options a:active { background: #388E3C; transform: translateY(0); }
+        .panel-container { display: flex; align-items: center; justify-content: center; margin-top: 20px; }
+        .panel-btn { margin-left: 20px; background: #FF5722; color: white; }
+        .selectedScreenshot { margin-top: 20px; }
+        .selectedScreenshot img { width: 80%; max-width: 600px; border-radius: 10px; margin-top: 20px; opacity: 0; transition: opacity 0.7s ease, transform 0.7s ease; }
+        .selectedScreenshot img.visible { opacity: 1; transform: translateY(0); }
+        .scroll-container { padding-right: 10px; width: 100%; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Сырок GDPS</h1>
+        <p>Скачайте наш GDPS и присоединяйтесь к нашему Telegram :3</p>
+        <div class="panel-container">
+            <a href="https://t.me/ceropg" class="btn">Telegram</a>
+            <a href="https://gofruit.space/gdps/063U/panel" class="panel-btn" target="_blank">Перейти на панель</a>
+        </div>
+        <div class="scroll-container">
+            <div class="download-options">
+                <h2>Выберите версию для скачивания:</h2>
+                <a href="assets/download/windows/Surok-GDPS-Windows-2.2-Installer.exe" class="btn">Скачать для Windows</a>
+                <a href="assets/download/android/Surok-GDPS-Android-2.2.apk" class="btn">Скачать для Android</a>
+            </div>
+            <div class="screenshots">
+                <img src="assets/foto/image_00.png" alt="Скриншот 1" onclick="changeScreenshot('assets/foto/image_00.png')">
+                <img src="assets/foto/image_01.png" alt="Скриншот 2" onclick="changeScreenshot('assets/foto/image_01.png')">
+                <img src="assets/foto/image_02.png" alt="Скриншот 3" onclick="changeScreenshot('assets/foto/image_02.png')">
+                <img src="assets/foto/image_03.png" alt="Скриншот 4" onclick="changeScreenshot('assets/foto/image_03.png')">
+                <img src="assets/foto/image_04.png" alt="Скриншот 5" onclick="changeScreenshot('assets/foto/image_04.png')">
+            </div>
+            <div class="selectedScreenshot">
+                <h3>Выбранный скриншот:</h3>
+                <img id="selectedScreenshot" class="visible" src="assets/foto/image_00.png" alt="Выбранный скриншот">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function changeScreenshot(src) {
+            const selectedImg = document.getElementById('selectedScreenshot');
+            selectedImg.classList.remove('visible');
+            setTimeout(() => {
+                selectedImg.src = src;
+                selectedImg.classList.add('visible');
+            }, 700); 
+        }
+    </script>
+</body>
+</html>
